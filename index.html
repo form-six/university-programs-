@@ -1,0 +1,141 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Six Student Helper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #023e8a;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    .feature {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    label, select, input {
+      display: block;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px;
+      background: #00b4d8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Form Six Student Helper</h1>
+    <p>Find Your Course, Career Path, and Learn How to Apply for Loans</p>
+  </header>  <nav>
+    <a href="#finder">Course Finder</a>
+    <a href="#heslb">HESLB Guide</a>
+    <a href="#notes">Subject Notes</a>
+  </nav>  <section id="finder" class="feature">
+    <h2>🎓 Course & Career Finder</h2>
+    <label for="combination">Select Your Combination:</label>
+    <select id="combination">
+      <option value="PCB">PCB</option>
+      <option value="EGM">EGM</option>
+      <option value="HGL">HGL</option>
+    </select>
+    <label for="results">Enter Your Grades (e.g., A, B, C):</label>
+    <input type="text" id="results" placeholder="e.g., B C C">
+    <button onclick="suggestCourses()">Suggest Courses</button>
+    <div id="suggestions"></div>
+  </section>  <section id="heslb" class="feature">
+    <h2>💰 HESLB Loan Application Guide</h2>
+    <p>
+      1. Visit <a href="https://olas.heslb.go.tz" target="_blank">olas.heslb.go.tz</a> to register.<br />
+      2. Prepare your documents: Birth Certificate, Form IV & VI results, Admission letter.<br />
+      3. Fill in personal info, education background, and attach documents.<br />
+      4. Submit and download your loan application form.<br />
+      5. Follow up for allocation after results.
+    </p>
+  </section>  <section id="notes" class="feature">
+    <h2>📘 Subject Notes</h2>
+    <ul>
+      <li><a href="assets/subject-notes/biology.pdf" download>Biology Notes (PDF)</a></li>
+      <li><a href="assets/subject-notes/physics.pdf" download>Physics Notes (PDF)</a></li>
+      <li><a href="assets/subject-notes/history.pdf" download>History Notes (PDF)</a></li>
+    </ul>
+  </section>  <footer>
+    &copy; 2025 Form Six Helper | Built to Empower Students
+  </footer>  <script>
+    function suggestCourses() {
+      const combo = document.getElementById("combination").value;
+      const output = document.getElementById("suggestions");
+      let result = "";
+
+      if (combo === "PCB") {
+        result = `<h4>Suggested Courses:</h4>
+          <ul>
+            <li>Doctor of Medicine - Muhimbili, UDOM</li>
+            <li>Pharmacy - MUHAS, UDOM</li>
+            <li>Veterinary Science - SUA</li>
+          </ul>
+          <h4>Possible Careers:</h4>
+          <ul><li>Doctor, Pharmacist, Medical Researcher</li></ul>`;
+      } else if (combo === "EGM") {
+        result = `<h4>Suggested Courses:</h4>
+          <ul>
+            <li>Engineering - UDSM, ARU</li>
+            <li>Statistics - UDOM, IFM</li>
+            <li>Economics - UDSM, SUA</li>
+          </ul>
+          <h4>Possible Careers:</h4>
+          <ul><li>Engineer, Statistician, Economist</li></ul>`;
+      } else if (combo === "HGL") {
+        result = `<h4>Suggested Courses:</h4>
+          <ul>
+            <li>Law - UDSM, Ruaha University</li>
+            <li>Education - UDOM, Open University</li>
+            <li>International Relations - SAUT, Tumaini</li>
+          </ul>
+          <h4>Possible Careers:</h4>
+          <ul><li>Lawyer, Teacher, Diplomat</li></ul>`;
+      } else {
+        result = "<p>Please select a valid combination.</p>";
+      }
+      output.innerHTML = result;
+    }
+  </script></body>
+</html>
